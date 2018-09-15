@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 4b7d74d884ea12343874752fece10875
-timeCreated: 1475563316
-licenseType: Store
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Barrier.002
     100002: Barrier.003
@@ -20177,25 +20175,659 @@ ModelImporter:
     4308062: SPW_Urban_Road 2way_02.002
     4308064: SPW_Urban_Road 2way_02.001
     4308066: SPW_Urban_Road 2way_T_Intersection_01.001
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Bank
+    second: {fileID: 2100000, guid: 626a7bdaa64ea1d48a6c30777dce0aaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Building01_Color02
+    second: {fileID: 2100000, guid: 1a2e965faf63192488b3a3f37f3d424a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Building02_Color01
+    second: {fileID: 2100000, guid: 5b4312606f3f0714e91a09e215c6a60d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Building02_Color02
+    second: {fileID: 2100000, guid: 1b094d65a207e0641a3ad479fb306f97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Building03_Color01
+    second: {fileID: 2100000, guid: 04a49ec91e407bb489962d361bcb7061, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Building03_Color02
+    second: {fileID: 2100000, guid: 2741d8ed516498e47b9aae783a68a263, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Church
+    second: {fileID: 2100000, guid: 32f59a4d4c437a044848893604f43fc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_City Hall
+    second: {fileID: 2100000, guid: af272db12e754254795e6aae13d881ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Court House
+    second: {fileID: 2100000, guid: 4ff521075b7aa81408cf6cb13bb08afb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Fire Station
+    second: {fileID: 2100000, guid: 82abb110f773f3e41a29fd4ac95e7af7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Hospital
+    second: {fileID: 2100000, guid: ceddbbab613b2cd4ebe83814a07dc8c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Mosque
+    second: {fileID: 2100000, guid: 23eda543bbd29324ab71563b9198e542, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_News
+    second: {fileID: 2100000, guid: b33cf8e3dfcaf8e4aa1ef542c6371693, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Police Station
+    second: {fileID: 2100000, guid: b2e4cf6c629a32b4f892d819a1bc377f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_School
+    second: {fileID: 2100000, guid: 2bc93e50cd79d3b409a00e45d5c2bed7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Shop_Color01
+    second: {fileID: 2100000, guid: 55ab558f5e75de54a9dfbcfc8a3e1075, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Shop_Color02
+    second: {fileID: 2100000, guid: 75cfce3fc5d1fdb4985c5eb84b3256b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPB_Shop_Color03
+    second: {fileID: 2100000, guid: 6c8dc022bf46c654f9a68be6eec824f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Farm_Crop
+    second: {fileID: 2100000, guid: b947acf7dcb1f844693320fa14e49a3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Medieval
+    second: {fileID: 2100000, guid: 9046cc50f77bc1b40ad4ed501c901876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Natures_01
+    second: {fileID: 2100000, guid: 2ce4105a8ae3357419b34fa2aa4b2f3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Natures_02
+    second: {fileID: 2100000, guid: 9baad6b4443b16c4a9c99908ee0e8efe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Airport
+    second: {fileID: 2100000, guid: 7ebc332329bf8a944bc445212a24fd4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Airport_Runway
+    second: {fileID: 2100000, guid: 21c5a86274b88c54c997ddcb89861c05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_01_Color01
+    second: {fileID: 2100000, guid: 77143683e23e1d24f91004e2ebf2abc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_01_Color02
+    second: {fileID: 2100000, guid: f478b38583e61d6438c8ecc52b818ff8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_02_Color01
+    second: {fileID: 2100000, guid: 02f739c2b7b00e042adc36b88719709e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_02_Color02
+    second: {fileID: 2100000, guid: e4be9368eaef5cc48b6d572010b07b0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_03_Color01
+    second: {fileID: 2100000, guid: c72fb67105960f64c846e2dd34cd2e9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_03_Color02
+    second: {fileID: 2100000, guid: 27a57515b4fa47a4884c35f74ff211eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_05_Color01
+    second: {fileID: 2100000, guid: 35f0e8acdc91b3e43a132f7f8669fcac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_05_Color02
+    second: {fileID: 2100000, guid: 682363b007125024799bdbfee00a6b9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_07_Color02
+    second: {fileID: 2100000, guid: 42ea999503263a44192d010e24e5e9de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_09_Color01
+    second: {fileID: 2100000, guid: 7566a19982ba3f54c9bae0c55348f8e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_12_Color01
+    second: {fileID: 2100000, guid: 14824d87214a7124791f792ccb24686f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_12_Color02
+    second: {fileID: 2100000, guid: fb66d89ffee826a4d8616b009454014f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_12_Color03
+    second: {fileID: 2100000, guid: 55ac7507e5ac2d84b961e04feb4c4293, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_13_Color01
+    second: {fileID: 2100000, guid: 59ab08bf5194e7a45b2b642524851c08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_14
+    second: {fileID: 2100000, guid: 2213a34aa0d986e4ba133f14cc2c9930, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_15
+    second: {fileID: 2100000, guid: dd3019444a61fdd478cff510c190692e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_16_Color01
+    second: {fileID: 2100000, guid: 8c9b1d33713959e4a973056c66473f6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_16_Color02
+    second: {fileID: 2100000, guid: 813eaac867d57174d88c539e414789ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_17_Color01
+    second: {fileID: 2100000, guid: 80e0eb055838f434683108658bdd032e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_17_Color02
+    second: {fileID: 2100000, guid: 0b50eee64f7f9724e95db2c4576de246, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_01_Color01
+    second: {fileID: 2100000, guid: da0bc1f167bae414bbbef76178a9b325, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_01_Color02
+    second: {fileID: 2100000, guid: 1f874d1532700634c8938b097ff62570, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_01_Color03
+    second: {fileID: 2100000, guid: 1fa0b304dc5c89e47b6e1ef8958512fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_02_Color01
+    second: {fileID: 2100000, guid: 82bcc7a46f28e9f499bbc6dba26dbc79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_02_Color02
+    second: {fileID: 2100000, guid: 262f5f2e7ef9cc5459f6b6b5ad9ba6f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Apartment_02_Color03
+    second: {fileID: 2100000, guid: 101febdfd2abc6845b033d1d20a403a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Gas Station_Color01
+    second: {fileID: 2100000, guid: d24073c3d04462349b6546bc54d2a3aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Shop_Color01
+    second: {fileID: 2100000, guid: 8cae0df54bbef77468bf5279d753464a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Shop_Color02
+    second: {fileID: 2100000, guid: 1ce5a99e127ce714694f6ecd33a5257d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Small_01_Color01
+    second: {fileID: 2100000, guid: 10d60e18c9cb5924c9fb087c006c0368, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Small_01_Color02
+    second: {fileID: 2100000, guid: 012c06b5a72120540a0a1abd3747d90d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Small_02
+    second: {fileID: 2100000, guid: 5ca60d49e8f5f334c86dcd6e5ae8ac5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Small_03
+    second: {fileID: 2100000, guid: d78fa321421621c4282dc4e02356746c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Bldg_Stadium
+    second: {fileID: 2100000, guid: 7917230c5bc11034391103bfa20ccabf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Factory
+    second: {fileID: 2100000, guid: 6b6308f53ce0bf840a2c26e286874baf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props
+    second: {fileID: 2100000, guid: d281c747dc08ca242a239961c4c4f8bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Air Balloon_Color01
+    second: {fileID: 2100000, guid: 10b403ce91d38ae478b051e2263dc209, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Air Balloon_Color02
+    second: {fileID: 2100000, guid: d42127ca80248a543b44d6466363285b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Air Balloon_Color03
+    second: {fileID: 2100000, guid: 42390e3b11b09af4a83458efd1dd05e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Container Crane
+    second: {fileID: 2100000, guid: 088b57affaf662d4a9d5c267693ffa1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Container_Color01
+    second: {fileID: 2100000, guid: 4d99fffe6fa5d5f4c977d63a4286e5b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Container_Color02
+    second: {fileID: 2100000, guid: 9146a72ee92cdec489d207130c47e362, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Container_Color03
+    second: {fileID: 2100000, guid: fb485163edbf9cc45ad6943e9bde68aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Entrance
+    second: {fileID: 2100000, guid: fbef18cbaa9d5d84faf0bed1cc37a0b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Props_Lighthouse
+    second: {fileID: 2100000, guid: 17871cb55fa7d8c468a8259ff34a10fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Road
+    second: {fileID: 2100000, guid: 86a2af51dc9aada4b9f4b3f54d00ff35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Road Props_01
+    second: {fileID: 2100000, guid: 5307a301bbdc8d247add12a651c071f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Road Props_02
+    second: {fileID: 2100000, guid: 4ff1299909f418343b1bec1a437aa1df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Road Props_03
+    second: {fileID: 2100000, guid: 8283e1d0273a741408d0c064b5367f0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Text
+    second: {fileID: 2100000, guid: 229f82ea7461bde4b9f3326eca084401, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Urban_Train Station
+    second: {fileID: 2100000, guid: f684333187891cf43bc21aa060634f72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Airplane_01
+    second: {fileID: 2100000, guid: 2e08b2afc597dbd42a98eec4fc0c8023, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Airplane_02
+    second: {fileID: 2100000, guid: b988529952ec9804fbc0fe570b33f561, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Airplane_03
+    second: {fileID: 2100000, guid: e8d5bdc3346b60a419dbd18d34fff9b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Airplane_04
+    second: {fileID: 2100000, guid: 2b9ffd6edb5e53e4285d30ffc672089c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Airplane_06
+    second: {fileID: 2100000, guid: 95a6e2a54d5b77b40b82deb61e60e965, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Helicopter_01
+    second: {fileID: 2100000, guid: acec9e4a1dbda714396e11962a816e1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Helicopter_02
+    second: {fileID: 2100000, guid: de7a048af5fa8884fa7ee26442eccb57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Helicopter_Ambulance
+    second: {fileID: 2100000, guid: 9e17f7266e81b794cb18b96f860cc5d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Helicopter_Fire
+    second: {fileID: 2100000, guid: 1e4ab0482d3b3b841a71b370868a8498, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Air_Helicopter_Police
+    second: {fileID: 2100000, guid: c8bd8c5e26b974648817aa7f7d69ddf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Ambulance
+    second: {fileID: 2100000, guid: e9e1ef011f38bdf4cb879ac2097dd5e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Bus_Color01
+    second: {fileID: 2100000, guid: 20741c80482e5344c8fa08e319bde892, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Bus_Color02
+    second: {fileID: 2100000, guid: 309d7414709c4e240ba2e0e0edadc7f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Car_Color01
+    second: {fileID: 2100000, guid: 72fce30627e55394ba9a418ddc919037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Car_Color02
+    second: {fileID: 2100000, guid: 53c7ea9ef11c25b40992256842f1eef9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Car_Color03
+    second: {fileID: 2100000, guid: 0f0d198c1f60905479dff1a4a7107428, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Fire Truck
+    second: {fileID: 2100000, guid: 7113e2844515afc4ca5f2629fdb88d3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Muscle Car_Color01
+    second: {fileID: 2100000, guid: 081caa37b1926df48bc44a496a6d5929, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Muscle Car_Color02
+    second: {fileID: 2100000, guid: 2218aebd88170d5418287febea5ca36f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Muscle Car_Color03
+    second: {fileID: 2100000, guid: a7650fa9458f9874bbce8af05a984da4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Pick Up Truck_Color01
+    second: {fileID: 2100000, guid: 141048a8b5d4398499d20d6bbae8e637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Pick Up Truck_Color02
+    second: {fileID: 2100000, guid: 885f071ff5b1bb64fb5bda0507a968c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Pick Up Truck_Color03
+    second: {fileID: 2100000, guid: 52a3f5d46763f9c41961a52179cdb542, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Police Car
+    second: {fileID: 2100000, guid: f0e1f18d6231ddf47a33e814a113f32a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_School Bus
+    second: {fileID: 2100000, guid: 4cee304df0624b045885d648c4a56d17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Taxi
+    second: {fileID: 2100000, guid: 73ef1ead4df584d469f9af2c7023f6ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Container_Color01
+    second: {fileID: 2100000, guid: 4563eaf989e51104186a706f6e301e0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Container_Color02
+    second: {fileID: 2100000, guid: 65971dcde8f7d2b4494b644766419a23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Container_Color03
+    second: {fileID: 2100000, guid: 399e245890ad7b74cb192e9196ac1f60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Empty_Color01
+    second: {fileID: 2100000, guid: 726bb154b0b41da42a26abf33ee38844, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Empty_Color02
+    second: {fileID: 2100000, guid: 53463578b7a6524499ac0ca5dcc7069c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Empty_Color03
+    second: {fileID: 2100000, guid: 2b9e2390249f7f346a60b61cb91808ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Log_Color01
+    second: {fileID: 2100000, guid: 352f0163aa81d964c8ca2708b6b634d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Log_Color02
+    second: {fileID: 2100000, guid: bcd606bfcdbd9e348a2a03ff63ad7ba5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Log_Color03
+    second: {fileID: 2100000, guid: 8a3e52eefe9d69448907e189b1c2c5ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Tanker_Color01
+    second: {fileID: 2100000, guid: 9e0dbce25ebb3c048a697d7a2737c4e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Tanker_Color02
+    second: {fileID: 2100000, guid: 7803af3b3a33b0842a482bbbcedc6c91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Land_Truck Tanker_Color03
+    second: {fileID: 2100000, guid: e9eeac4b2df2b434795e277befbb7faa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Train_Freight Train_Engine_01
+    second: {fileID: 2100000, guid: 22888e8719ceb844294810e43e738856, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Train_Freight Train_Engine_02
+    second: {fileID: 2100000, guid: 207a4465158746c4b86581fca16f71ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Train_Freight Train_Trailer
+    second: {fileID: 2100000, guid: eabbe25b2b4648540a6772ae6612c973, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Train_Modern_Color01
+    second: {fileID: 2100000, guid: 3c1945fb2a262fb4790ec6a4ae0d5d77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Train_Modern_Color02
+    second: {fileID: 2100000, guid: 438382b6fdb564d40a4857a943f7206c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Boat_Color01
+    second: {fileID: 2100000, guid: 20c4fdf89957ef749a568706a65e1c1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Boat_Color02
+    second: {fileID: 2100000, guid: eccb3190b9f03bb46a1de766613bd077, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Boat_Color03
+    second: {fileID: 2100000, guid: 646efacd0641fd543953147b4f43c001, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Cargo Ship_Color01
+    second: {fileID: 2100000, guid: a8ef24c789692684c8674cc6148a445e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Cargo Ship_Color02
+    second: {fileID: 2100000, guid: b93688e2a33e43d4e8bbf82e28e77f36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Passenger Ship_Color01
+    second: {fileID: 2100000, guid: bf40253a7bdcfb34c850bbed7a567c3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SPW_Vehicle_Water_Passenger Ship_Color02
+    second: {fileID: 2100000, guid: d7774775879e768478c4b5fc7f5bf3aa, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -20203,38 +20835,51 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
