@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ProjectRoquesAndBuiBui
+﻿namespace ProjectRoquesAndBuiBui
 {
     public abstract class Batiment : Amenagement
     {
@@ -34,7 +29,7 @@ namespace ProjectRoquesAndBuiBui
         }
         public override string AffichageAchat()
         {
-            return "Coût mensuel : " + coutMensuel;
+            return "Coût mensuel : " + coutMensuel + "€";
         }
 
        

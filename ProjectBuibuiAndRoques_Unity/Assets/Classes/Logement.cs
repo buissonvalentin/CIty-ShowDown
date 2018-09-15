@@ -90,10 +90,12 @@ namespace ProjectRoquesAndBuiBui
         {
             return base.ToString()+"\nCapacité Max logement : "+capaciteMax+"\nClasse sociale du logement : "+Convert.ToString(classe)+"\nNiveau de bonheur du logement : "+nivBonheur+"\nMinimum Occupation : "+minOccupation;
         }
+
         public override string AffichageAchat()
         {
-            return base.AffichageAchat() +"\nClasse sociale : "+Convert.ToString(classe)+ "\nCapacité : " + capaciteMax;
+            return base.AffichageAchat() +"\nClasse : " + Convert.ToString(classe) + "\nCapacité : " + capaciteMax + " habt";
         }
     }
+
     public enum ClasseSocial { aisee, moyenne, ouvriere, tous}
 }

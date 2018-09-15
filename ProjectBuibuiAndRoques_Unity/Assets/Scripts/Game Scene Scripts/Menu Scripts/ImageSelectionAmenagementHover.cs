@@ -17,7 +17,7 @@ public class ImageSelectionAmenagementHover : MonoBehaviour, IPointerEnterHandle
 
     private void Update()
     {
-         
+        int a = 0;
     }
 
 
@@ -29,15 +29,10 @@ public class ImageSelectionAmenagementHover : MonoBehaviour, IPointerEnterHandle
         Transform ctn = infoBox.transform.Find("filtre").Find("Container");
         Amenagement a = GetComponent<SelectionneAmenagementBouton>().amenagement.GetComponent<AmenagementPrefab>().Amenagement;
         ctn.Find("Nom").GetComponent<Text>().text = a.Nom;
-        ctn.Find("Prix").GetComponent<Text>().text = a.Prix.ToString();
-        ctn.Find("Taille").GetComponent<Text>().text = a.Taille.ToString();
+        ctn.Find("Prix").GetComponent<Text>().text = "Prix : " + a.Prix.ToString() + "€";
+        ctn.Find("Taille").GetComponent<Text>().text = "Taille : " + a.Taille.ToString() + "*" + a.Taille.ToString();
         ctn.Find("Info").GetComponent<Text>().text = a.AffichageAchat();
-        /*
-        ctn.Find("Nom").GetComponent<Text>().text = a.Nom;
-        ctn.Find("Prix").GetComponent<Text>().text = a.Prix.ToString();
-        ctn.Find("Taille").GetComponent<Text>().text = a.Taille.ToString();
-        ctn.Find("Info").GetComponent<Text>().text = "info supp";
-        */
+        
         (infoBox.transform as RectTransform).position = new Vector2((transform as RectTransform).position.x, (infoBox.transform as RectTransform).position.y);
     }
 

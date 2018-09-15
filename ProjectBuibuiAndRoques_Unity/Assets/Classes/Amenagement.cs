@@ -29,10 +29,12 @@ namespace ProjectRoquesAndBuiBui
             estConnecte = false;
             globalIdAmenagement += 1;
         }
+
         public override string ToString()
         {
             return "";
         }
+
         public virtual string AffichageAchat()
         {
             return "";
