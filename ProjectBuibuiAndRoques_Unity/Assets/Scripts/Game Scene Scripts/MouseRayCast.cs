@@ -86,6 +86,7 @@ public class MouseRayCast : MonoBehaviour {
 
         GestionDestructionMode();
 
+        CorrectionCameraPosition();
 
         if (targetBuilding != null)
             menu.AfficheInfoAmenagement(targetBuilding);
@@ -148,6 +149,19 @@ public class MouseRayCast : MonoBehaviour {
     void ZoomCamera()
     {
         transform.position +=  transform.forward * (Input.GetAxis("Mouse ScrollWheel") * (transform.position.y/5) * Zoomsensitivity);
+        
+    }
+
+    void CorrectionCameraPosition()
+    {
+        float maxHeigth = 300;
+        if (transform.position.x < 0) transform.position = new Vector3(0f, transform.position.y, transform.position.z);
+        if (transform.position.x >= 1200) transform.position = new Vector3(1200f, transform.position.y, transform.position.z);
+        if (transform.position.y < 0) transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        if (transform.position.y >= maxHeigth) transform.position = new Vector3(transform.position.x, maxHeigth, transform.position.z);
+        if (transform.position.z < 0) transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        if (transform.position.z >= 1200) transform.position = new Vector3(transform.position.x, transform.position.y, 1200f);
+
     }
 
     void DeplaceAmenagement()
