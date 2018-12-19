@@ -16,9 +16,15 @@ namespace ProjectRoquesAndBuiBui
             carte = new Amenagement[taille, taille];
         }
 
+        public Terrain()
+        {
+
+        }
+
         public int Taille
         {
             get { return taille; }
+            set { taille = value; }
         }
 
         public Amenagement[,] Carte
@@ -190,7 +196,9 @@ namespace ProjectRoquesAndBuiBui
                     }
                 }
             }
-            (a as Batiment).EstConnecte = false;
+
+            if(a is Batiment)
+                (a as Batiment).EstConnecte = false;
         }
 
         void VerifierConnectionToutLesBatiments(List<Amenagement> amenagements) {

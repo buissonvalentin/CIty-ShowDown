@@ -33,17 +33,10 @@ public class RouteOrientationManager : MonoBehaviour {
     void Start () {
         ville = FindObjectOfType<GameManager>().ville;
         a = GetComponent<AmenagementPrefab>().Amenagement;
-        if ((a as Route).EstSortie)
-        {
-            a.PosY = 41;
-            a.PosX = 0;
-            ville.PlacerUnAmenagement(a);
-        }
     }
 
     private void Update()
     {
-        
         UpdateOrientation();
     }
 

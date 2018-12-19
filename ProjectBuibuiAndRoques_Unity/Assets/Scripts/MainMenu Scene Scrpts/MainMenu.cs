@@ -18,11 +18,13 @@ public class MainMenu : MonoBehaviour {
     Transform boxGameMode;
     Transform boxMainMenu;
     Transform boxMatchMaking;
+    Transform boxLoadSaves;
 
     // Use this for initialization
     void Start () {
         boxGameMode = transform.Find("BoxGameMode");
         boxMainMenu = transform.Find("BoxMainMenu");
+        boxLoadSaves = transform.Find("BoxLoadSaves");
 
         nouvellePartie.onClick.AddListener(() =>
         {
@@ -34,6 +36,7 @@ public class MainMenu : MonoBehaviour {
         {
             FindObjectOfType<Manager>().StartGame();
         });
+
         partieMulti.onClick.AddListener(() =>
         {
             if (FindObjectOfType<ServerManager>().Connect())
@@ -42,6 +45,12 @@ public class MainMenu : MonoBehaviour {
                 boxMatchMaking.gameObject.SetActive(true);
             }
             
+        });
+
+        charger.onClick.AddListener(() =>
+        {
+            boxLoadSaves.gameObject.SetActive(true);
+            boxMainMenu.gameObject.SetActive(false); 
         });
 
         quitter.onClick.AddListener(() =>

@@ -16,22 +16,26 @@ public class MouseRayCast : MonoBehaviour {
     public Menu menu;
     public GameObject boxParametres;
 
+    // Cursor Textures
     public Texture2D cursorDeplacementCamera;
     public Texture2D cursorOrientationCamera;
     public Texture2D cursorDestroy;
     bool isCursorUsed;
     
-    Transform tempBuildingDestroy;
+    // Destruction Mode building management
+    Transform buildingTextureHolder;
     Transform targetBuldingDestroy;
 
     Transform targetBuilding;
 
     public Material indisponible;
 
+    // Road placement
     public GameObject boule;
     GameObject firstBoule;
     GameObject secondBoule;
 
+    // Positionning
     float posX;
     float posZ;
     int gridX;
@@ -60,7 +64,7 @@ public class MouseRayCast : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         isCursorUsed = false;
         dispo = false;
@@ -91,7 +95,9 @@ public class MouseRayCast : MonoBehaviour {
         if (targetBuilding != null)
             menu.AfficheInfoAmenagement(targetBuilding);
 
-       
+        if (!isCursorUsed)
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
     }
 
     public void SetAmenagement(GameObject a)
@@ -135,8 +141,6 @@ public class MouseRayCast : MonoBehaviour {
 
         if (!Input.GetMouseButton(2))
         {
-            if(!isCursorUsed)
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             return;
         }
 
@@ -245,6 +249,7 @@ public class MouseRayCast : MonoBehaviour {
                     {
                         GOAmenagement = Instantiate(modelActuel, new Vector3(posX, 0, posZ), Quaternion.identity);
                         amenagement = GOAmenagement.GetComponent<AmenagementPrefab>().Amenagement;
+                        amenagement.Rotation = rotation;
                     }
                 }
                 
@@ -327,6 +332,7 @@ public class MouseRayCast : MonoBehaviour {
 
         if(Input.GetMouseButtonDown(0) && GOAmenagement == null)
         {
+            
             int mask = LayerMask.GetMask("Batiment"); 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             bool touch = Physics.Raycast(ray, out hit, 5000f, mask);
@@ -341,10 +347,15 @@ public class MouseRayCast : MonoBehaviour {
 
                 if (isInDestroyMode)
                 {
-                    Amenagement temp  = targetBuilding.GetComponent<AmenagementPrefab>().Amenagement;
-                    ville.SupprimerAmenagement(temp);
-                    Destroy(targetBuilding.gameObject);
-                    targetBuilding = null;
+                    if(targetBuldingDestroy != null)
+                    {
+                        Amenagement temp = targetBuilding.GetComponent<AmenagementPrefab>().Amenagement;
+                        ville.SupprimerAmenagement(temp);
+                        Destroy(targetBuilding.gameObject);
+                        targetBuilding = null;
+                        Destroy(buildingTextureHolder.gameObject);
+                    }
+                    
                 }
                 else
                 {
@@ -416,38 +427,48 @@ public class MouseRayCast : MonoBehaviour {
     {
         if (isInDestroyMode)
         {
-            /*
+            
             int mask = LayerMask.GetMask("Batiment");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 5000f, mask))
             {
 
-
-                targetBuldingDestroy = hit.transform;
-                if (!targetBuldingDestroy.GetComponent<AmenagementPrefab>())
-                    targetBuldingDestroy = targetBuilding.parent;
-
-                if (tempBuildingDestroy == null)
+                if  (targetBuldingDestroy != hit.transform && targetBuldingDestroy != hit.transform.parent)
                 {
-                    tempBuildingDestroy = Instantiate(targetBuldingDestroy);
-                    tempBuildingDestroy.gameObject.SetActive(false);
+                    ChangeGameObjectTextureToOriginal(targetBuldingDestroy.gameObject, buildingTextureHolder.gameObject);
+                    Destroy(buildingTextureHolder.gameObject);
+                    targetBuldingDestroy = null;
                 }
 
+                if(targetBuldingDestroy == null)
+                {
+                    targetBuldingDestroy = hit.transform;
+                    if (!targetBuldingDestroy.GetComponent<AmenagementPrefab>())
+                        targetBuldingDestroy = targetBuilding.parent;
+
+                    buildingTextureHolder = Instantiate(targetBuldingDestroy);
+                    buildingTextureHolder.gameObject.SetActive(false);
+
+                    ChangeGameObjectTextureRed(targetBuldingDestroy.gameObject);
+                }
+                
+                
             }
             else
             {
-                if(targetBuldingDestroy != null && tempBuildingDestroy != null)
-                ChangeGameObjectTextureToOriginal(targetBuldingDestroy.gameObject, tempBuildingDestroy.gameObject); 
+                if(targetBuldingDestroy != null)
+                {
+                    ChangeGameObjectTextureToOriginal(targetBuldingDestroy.gameObject, buildingTextureHolder.gameObject);
+                    Destroy(buildingTextureHolder.gameObject);
+                    targetBuldingDestroy = null;
+                }
+                    
             }
-            */
+            
             Cursor.SetCursor(cursorDestroy, new Vector2(cursorDestroy.width/2, cursorDestroy.height/2) , CursorMode.Auto);
             isCursorUsed = true;
         }
-        else
-        {
-            if (!isCursorUsed)
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
+        
     }
 
     void OrientationCamera()
@@ -460,8 +481,6 @@ public class MouseRayCast : MonoBehaviour {
 
         if (!Input.GetMouseButton(1))
         {
-            if(!isCursorUsed)
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             return;
         }
 

@@ -88,17 +88,56 @@ namespace ProjectRoquesAndBuiBui
             this.quotaPointBonus = 10;
         }
 
+        public Ville()
+        {
+            amenagements = new List<Amenagement>();
+            bonus = new List<Bonus>();
+            //map = new Terrain(taille);
+            loisExistante = new List<Legislation>();
+            //marcheFinancier = new Marche(valElectricite, valEau);
+            CreationListeBonus();
+            CreationListeLoi();
+            jeuEnPause = true;
+            this.quotaPointBonus = 10;
+
+        }
+
+        public void LoadData()
+        {
+            int tailleTemp = map.Taille;
+            map = new Terrain(tailleTemp);
+            foreach(Amenagement a in amenagements)
+            {
+                //if(a.Type == "Batiment") a = new Batiment()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                for (int i = a.PosY; i < a.PosY + a.Taille; i++)
+                {
+                    for (int j = a.PosX; j < a.PosX + a.Taille; j++)
+                    {
+                        map.Carte[i, j] = a;
+                    }
+                }
+
+            }
+        }
+
         public override string ToString()
         {
             return "Argent : " + argent + "\nRevenu : " + revenu + "\nPopulation : " + population + "\nPopulation aisée : " + populationAisee + "\nPopulation moyenne : " + populationMoyenne + "\nPopulation ouvrière : " + populationOuvriere + "\nCapacité Logement : " + capaciteLogement + "\nCulture : " + culture + "\nAttractivité : " + attractivite + "\nEau Consomme : " + eauConsomme + "\nEnergie Consomme : " + energieConsomme + "\nBonheur : " + bonheur + "\nPersonne chômage : " + personneChomage + "\nNourriture : " + nourritureConsomme + "\nCoef Impot Aisée : " + coefImpotAisee;
-        }
-
-        public Terrain Map
-        {
-            get { return map; }
-        }
-
-        public List<Amenagement> Amenagements { get { return amenagements; } }
+        }  
 
         bool PeutAjouterAmenagement(Amenagement a)
         {
@@ -1007,6 +1046,18 @@ namespace ProjectRoquesAndBuiBui
         #endregion
 
         #region Proprietes
+
+        public Terrain Map
+        {
+            get { return map; }
+            set { map = value; }
+        }
+
+        public List<Amenagement> Amenagements {
+            get { return amenagements; }
+            set { amenagements = value; }
+        }
+
         public float Attractivite
         {
             get

@@ -13,10 +13,16 @@ public class GameManager : MonoBehaviour {
     Thread gestion;
 
     void Awake () {
-        Thread.Sleep(1000);
         ville = new Ville(15000000, 0, 0, 120, 2, 0.14f, 3, 450);
         gestion = new Thread(ville.EvolutionVariablesParTour);
         gestion.Start();
+
+        Route sortie = new Route("Route", 0, 1, true);
+
+        sortie.PosY = 41;
+        sortie.PosX = 0;
+        ville.PlacerUnAmenagement(sortie);
+        
         //ville.Map.Carte[41, 0] = new Route("sortie", 0, 1, true);
     }
 
@@ -46,6 +52,13 @@ public class GameManager : MonoBehaviour {
     {
         menu.AfficheBoxFinPartie(ville);
         ville.Pause();
+    }
+
+    public void LoadGame(Ville v)
+    {
+        ville = v;
+        gestion = new Thread(ville.EvolutionVariablesParTour);
+        gestion.Start();
     }
 
 }

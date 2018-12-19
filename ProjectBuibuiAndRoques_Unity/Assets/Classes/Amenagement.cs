@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using UnityEngine;
 
 namespace ProjectRoquesAndBuiBui
 {
     public class Amenagement
     {
+        string type;
         string nom;
         int idAmenagement;
         int prix;
         int taille;
+        Vector3 rotation;
         bool estConnecte; // true si le batiment est relié à la sortie de la ville par une route
 
         private static int globalIdAmenagement = 0;
@@ -21,6 +24,7 @@ namespace ProjectRoquesAndBuiBui
 
         public Amenagement(string nom, int prix, int taille, int niveau)
         {
+            type = GetType().Name;
             this.nom = nom;
             this.idAmenagement = globalIdAmenagement;
             this.prix = prix;
@@ -28,6 +32,10 @@ namespace ProjectRoquesAndBuiBui
             this.niveau = niveau;
             estConnecte = false;
             globalIdAmenagement += 1;
+        }
+
+        public Amenagement()
+        {
         }
 
         public override string ToString()
@@ -143,6 +151,18 @@ namespace ProjectRoquesAndBuiBui
             {
                 estConnecte = value;
             }
+        }
+
+        public Vector3 Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
         }
     }
 }
