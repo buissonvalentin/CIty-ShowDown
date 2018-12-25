@@ -20,6 +20,8 @@ public class LoadSavesBox : MonoBehaviour {
         {
             Return();
         });
+
+        LoadSaves();
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class LoadSavesBox : MonoBehaviour {
         {
             Transform t = Instantiate(saveTemplate);
             t.parent = container;
-            t.GetComponent<SaveManagement>().save = s;
+            t.GetComponent<SaveTemplateScript>().save = s;
             t.gameObject.SetActive(true);
         }
         

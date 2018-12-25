@@ -55,8 +55,16 @@ public class MainMenu : MonoBehaviour {
 
         quitter.onClick.AddListener(() =>
         {
-            Application.Quit();
+            string titre = "Attention";
+            string content = "Voulez vous vraiment quitter le jeu ?";
+            FindObjectOfType<MainMenu>().transform.Find("Prompt").GetComponent<PromptWindow>().OpenPrompt(LeaveGame, () => { }, titre, content);
+            
         });
+    }
+
+    void LeaveGame()
+    {
+        Application.Quit();
     }
 	
 	// Update is called once per frame

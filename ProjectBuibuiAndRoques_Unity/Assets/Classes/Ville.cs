@@ -85,20 +85,19 @@ namespace ProjectRoquesAndBuiBui
             CreationListeBonus();
             CreationListeLoi();
             jeuEnPause = true;
-            this.quotaPointBonus = 10;
+            quotaPointBonus = 10;
         }
 
         public Ville()
         {
             amenagements = new List<Amenagement>();
             bonus = new List<Bonus>();
-            //map = new Terrain(taille);
             loisExistante = new List<Legislation>();
             //marcheFinancier = new Marche(valElectricite, valEau);
             CreationListeBonus();
             CreationListeLoi();
             jeuEnPause = true;
-            this.quotaPointBonus = 10;
+            quotaPointBonus = 10;
 
         }
 
@@ -108,21 +107,6 @@ namespace ProjectRoquesAndBuiBui
             map = new Terrain(tailleTemp);
             foreach(Amenagement a in amenagements)
             {
-                //if(a.Type == "Batiment") a = new Batiment()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 for (int i = a.PosY; i < a.PosY + a.Taille; i++)
                 {
                     for (int j = a.PosX; j < a.PosX + a.Taille; j++)

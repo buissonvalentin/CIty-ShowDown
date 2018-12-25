@@ -41,4 +41,9 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         GetComponent<Image>().color = new Color(255, 255, 255, 1f);
     }
+
+    private void OnEnable()
+    {
+        GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+    }
 }
