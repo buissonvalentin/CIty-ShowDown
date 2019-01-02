@@ -28,7 +28,8 @@ public class MouseRayCast : MonoBehaviour {
 
     Transform targetBuilding;
 
-    public Material indisponible;
+    public Material indisponibleMat;
+    public Material disponibleMat;
 
     // Road placement
     public GameObject boule;
@@ -52,6 +53,8 @@ public class MouseRayCast : MonoBehaviour {
 
     private Vector3 dragOrigin;
 
+    
+
     void Start () {
         isInDestroyMode = false;
         posX = 0;
@@ -65,6 +68,8 @@ public class MouseRayCast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        
 
         isCursorUsed = false;
         dispo = false;
@@ -183,11 +188,14 @@ public class MouseRayCast : MonoBehaviour {
                 // Modifie le material du batiment pour afficher si la place est disponible
                 if (dispo)
                 {
-                    ChangeGameObjectTextureToOriginal(GOAmenagement, modelActuel);
+                    ChangeGameObjectTexture(GOAmenagement, disponibleMat);
+                    Debug.Log("dispo");
+                    //ChangeGameObjectTextureToOriginal(GOAmenagement, modelActuel);
                 }
                 else
                 {
-                    ChangeGameObjectTextureRed(GOAmenagement);
+                    ChangeGameObjectTexture(GOAmenagement, indisponibleMat);
+                    Debug.Log("indispo");
                 }
 
                 // positionnement du prefab par rapport au curseur de la souris
@@ -245,11 +253,14 @@ public class MouseRayCast : MonoBehaviour {
                 }
                 else
                 {
-                    if (dispo && ville.PlacerUnAmenagement(amenagement))
+                    if (dispo && ville.PlacerUnAmenagement(amenagement)) // placement du batiment sur la carte
                     {
+                        ChangeGameObjectTextureToOriginal(GOAmenagement, modelActuel);
                         GOAmenagement = Instantiate(modelActuel, new Vector3(posX, 0, posZ), Quaternion.identity);
                         amenagement = GOAmenagement.GetComponent<AmenagementPrefab>().Amenagement;
                         amenagement.Rotation = rotation;
+                        
+                        
                     }
                 }
                 
@@ -449,7 +460,8 @@ public class MouseRayCast : MonoBehaviour {
                     buildingTextureHolder = Instantiate(targetBuldingDestroy);
                     buildingTextureHolder.gameObject.SetActive(false);
 
-                    ChangeGameObjectTextureRed(targetBuldingDestroy.gameObject);
+
+                    ChangeGameObjectTexture(targetBuldingDestroy.gameObject, indisponibleMat);
                 }
                 
                 
@@ -501,17 +513,18 @@ public class MouseRayCast : MonoBehaviour {
         isInDestroyMode = false;
     }
 
-    void ChangeGameObjectTextureRed(GameObject go)
+    void ChangeGameObjectTexture(GameObject go, Material mat)
     {
         if (!go.GetComponent<Renderer>())
         {
             for (int i = 0; i < go.transform.childCount; i++)
             {
-                go.transform.GetChild(i).GetComponent<Renderer>().sharedMaterial = indisponible;
+                go.transform.GetChild(i).GetComponent<Renderer>().sharedMaterial = mat;
             }
         }
         else
-            go.GetComponent<Renderer>().sharedMaterial = indisponible;
+            go.GetComponent<Renderer>().sharedMaterial = mat;
+
     }
 
     void ChangeGameObjectTextureToOriginal(GameObject go, GameObject original)

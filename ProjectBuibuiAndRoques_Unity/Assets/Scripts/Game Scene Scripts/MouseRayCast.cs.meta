@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: a8e3a2a140dcf11438f1fa42b83b1455
-timeCreated: 1529066341
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - menu: {instanceID: 0}
+  - boxParametres: {instanceID: 0}
+  - cursorDeplacementCamera: {instanceID: 0}
+  - cursorOrientationCamera: {instanceID: 0}
+  - cursorDestroy: {instanceID: 0}
+  - indisponibleMat: {fileID: 2100000, guid: f8e71326322eeb24a846c55679838d11, type: 2}
+  - disponibleMat: {fileID: 2100000, guid: 93bf79d2cfa658647bc834e2530b0f96, type: 2}
+  - boule: {fileID: 1452044270859700, guid: eae3432c6bfb4d447b60e1f863734a5b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

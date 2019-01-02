@@ -23,6 +23,8 @@ public class CarGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        return;
         
         if(countRoad >= 10)
         {
