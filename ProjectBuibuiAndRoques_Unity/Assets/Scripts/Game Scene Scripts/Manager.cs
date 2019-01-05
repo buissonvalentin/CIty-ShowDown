@@ -6,6 +6,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
 
     public GameObject game;
+    Settings settings;
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +23,19 @@ public class Manager : MonoBehaviour {
     {
         // cacher menu 
         // afficher game gameobject
-        GameObject.Find("MainMenu").SetActive(false); 
-        game.SetActive(true);
-        
+        GameObject.Find("MainMenu").SetActive(false);
+        game.SetActive(true);  
+    }
+
+    public Settings Settings
+    {
+        get
+        {
+            if(settings == null)
+            {
+                settings = new Settings();
+            }
+            return settings;
+        }
     }
 }

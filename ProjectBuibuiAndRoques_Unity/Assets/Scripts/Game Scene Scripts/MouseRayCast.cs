@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.AI;
 using ProjectRoquesAndBuiBui;
+using System;
 
 public class MouseRayCast : MonoBehaviour {
 
@@ -97,11 +98,19 @@ public class MouseRayCast : MonoBehaviour {
 
         CorrectionCameraPosition();
 
+        CheckForShortCut();
+
         if (targetBuilding != null)
             menu.AfficheInfoAmenagement(targetBuilding);
 
         if (!isCursorUsed)
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
+    }
+
+    private void CheckForShortCut()
+    {
+        
 
     }
 

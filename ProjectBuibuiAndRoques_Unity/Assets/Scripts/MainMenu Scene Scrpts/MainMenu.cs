@@ -19,12 +19,14 @@ public class MainMenu : MonoBehaviour {
     Transform boxMainMenu;
     Transform boxMatchMaking;
     Transform boxLoadSaves;
+    Transform boxSettings;
 
     // Use this for initialization
     void Start () {
         boxGameMode = transform.Find("BoxGameMode");
         boxMainMenu = transform.Find("BoxMainMenu");
         boxLoadSaves = transform.Find("BoxLoadSaves");
+        boxSettings = transform.Find("BoxSettings");
 
         nouvellePartie.onClick.AddListener(() =>
         {
@@ -43,14 +45,19 @@ public class MainMenu : MonoBehaviour {
             {
                 boxGameMode.gameObject.SetActive(true);
                 boxMatchMaking.gameObject.SetActive(true);
-            }
-            
+            }            
         });
 
         charger.onClick.AddListener(() =>
         {
             boxLoadSaves.gameObject.SetActive(true);
             boxMainMenu.gameObject.SetActive(false); 
+        });
+
+        parametres.onClick.AddListener(() =>
+        {
+            boxSettings.gameObject.SetActive(true);
+            boxMainMenu.gameObject.SetActive(false);
         });
 
         quitter.onClick.AddListener(() =>

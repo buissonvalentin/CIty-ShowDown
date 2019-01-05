@@ -1,0 +1,1 @@
+{"shortcutKeyDelete":98,"shortcutKeyRotate":97,"musiqueVolume":100,"noiseVolume":62,"vsync":0,"quality":1}

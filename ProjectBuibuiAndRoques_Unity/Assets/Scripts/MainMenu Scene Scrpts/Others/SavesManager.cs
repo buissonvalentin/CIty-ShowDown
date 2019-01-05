@@ -12,6 +12,7 @@ namespace Assets.Scripts.Others
     {
         static string folder = "Saves\\";
         static string listSaveFiles = "Saves.txt";
+        static string settingFile = "Settings.txt";
         static string key = "";
 
         public static void SaveGame(Ville v)
@@ -288,6 +289,45 @@ namespace Assets.Scripts.Others
             return key;
         }
 
+        public static void SaveSettings()
+        {
+            StreamWriter stm;
+            Settings set = UnityEngine.Object.FindObjectOfType<Manager>().Settings;
+
+            try
+            {
+                stm = new StreamWriter(settingFile,false);
+                string jsonString = JsonConvert.SerializeObject(set, Formatting.None, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                stm.Write(jsonString);
+                stm.Close();
+            }
+            catch(Exception e)
+            {
+                UnityEngine.Object.FindObjectOfType<LogBox>().WriteLog("Erreur sauvegarder parametres");
+            }
+        }
+
+        public static Settings LoadSettings()
+        {
+            Settings set;
+            JObject setJObject;
+            try
+            {
+                StreamReader stm = new StreamReader(settingFile);
+                string jsonString = stm.ReadToEnd();
+                setJObject = JObject.Parse(jsonString);
+
+                set = JsonConvert.DeserializeObject<Settings>(jsonString);
+                stm.Close();
+            }
+            catch (Exception e)
+            {
+                UnityEngine.Object.FindObjectOfType<LogBox>().WriteLog(e.Message);
+                return null;
+            }
+
+            return set;
+        }
     }
 
     public class Save
