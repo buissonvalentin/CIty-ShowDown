@@ -10,7 +10,7 @@ public class DetruireButton : MonoBehaviour {
 	void Start () {
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            mouse.AcivateDestroyMode();
+            mouse.ToggleDestroyMode();
         });
 	}
 	

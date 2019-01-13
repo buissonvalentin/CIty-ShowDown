@@ -114,26 +114,25 @@ public class SettingsBox : MonoBehaviour
         string[] qualities = QualitySettings.names;
         minQuality = 0;
         maxQuality = qualities.Length - 1;
-        //qualityLevel = qualities.Length / 2;
 
 
         QualitySettings.SetQualityLevel(qualityLevel, true);
         quality.text = qualities[qualityLevel];
 
+        upQuality.onClick.RemoveAllListeners();
         upQuality.onClick.AddListener(() =>
         {
             qualityLevel++;
             if (qualityLevel > maxQuality) qualityLevel = maxQuality;
-            //QualitySettings.SetQualityLevel(qualityLevel, true);
             quality.text = qualities[qualityLevel];
 
         });
 
+        lowerQuality.onClick.RemoveAllListeners();
         lowerQuality.onClick.AddListener(() =>
         {
             qualityLevel--;
             if (qualityLevel < minQuality) qualityLevel = minQuality;
-            //QualitySettings.SetQualityLevel(qualityLevel, true);
             quality.text = qualities[qualityLevel];
         });
     }
@@ -148,6 +147,7 @@ public class SettingsBox : MonoBehaviour
         soundSlider.value = musiqueVolume;
         soundSlider.wholeNumbers = true;
 
+        soundSlider.onValueChanged.RemoveAllListeners();
         soundSlider.onValueChanged.AddListener(delegate 
         {
             //musiqueVolume = (int)soundSlider.value;
@@ -161,6 +161,7 @@ public class SettingsBox : MonoBehaviour
         QualitySettings.vSyncCount = vsyncValue;
         vsyncToggle.isOn = vsyncValue == 1;
 
+        vsyncToggle.onValueChanged.RemoveAllListeners();
         vsyncToggle.onValueChanged.AddListener(delegate
         {
             vsyncValue = (vsyncToggle.isOn ? 1 : 0);
@@ -178,6 +179,7 @@ public class SettingsBox : MonoBehaviour
         noiseSlider.value = noiseVolume;
         noiseSlider.wholeNumbers = true;
 
+        noiseSlider.onValueChanged.RemoveAllListeners();
         noiseSlider.onValueChanged.AddListener(delegate
         {
             //noiseVolume = (int)noiseSlider.value;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Others;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ public class Manager : MonoBehaviour {
         {
             if(settings == null)
             {
-                settings = new Settings();
+                settings = SavesManager.LoadSettings();
             }
             return settings;
         }

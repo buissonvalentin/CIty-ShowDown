@@ -15,7 +15,7 @@ public class MouseRayCast : MonoBehaviour {
 
     Ville ville;
     public Menu menu;
-    public GameObject boxParametres;
+    public GameObject boxPause;
 
     // Cursor Textures
     public Texture2D cursorDeplacementCamera;
@@ -54,6 +54,12 @@ public class MouseRayCast : MonoBehaviour {
 
     private Vector3 dragOrigin;
 
+    // Outline
+    public GameObject unitOutline;
+    List<GameObject> outlineGroup;
+
+    //Amenagement Spawner
+    public GameObject amenagementSpawner;
     
 
     void Start () {
@@ -69,8 +75,6 @@ public class MouseRayCast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-        
 
         isCursorUsed = false;
         dispo = false;
@@ -105,12 +109,22 @@ public class MouseRayCast : MonoBehaviour {
 
         if (!isCursorUsed)
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-
     }
 
     private void CheckForShortCut()
     {
-        
+        Settings set = FindObjectOfType<Manager>().Settings;
+        if (Input.GetKeyDown(set.shortcutKeyRotate)){
+            if(targetBuilding != null)
+            {
+                targetBuilding.Rotate(new Vector3(0, 90f, 0));
+            }
+        }
+
+        if (Input.GetKeyDown(set.shortcutKeyDelete))
+        {
+            ToggleDestroyMode();
+        }
 
     }
 
@@ -198,13 +212,10 @@ public class MouseRayCast : MonoBehaviour {
                 if (dispo)
                 {
                     ChangeGameObjectTexture(GOAmenagement, disponibleMat);
-                    Debug.Log("dispo");
-                    //ChangeGameObjectTextureToOriginal(GOAmenagement, modelActuel);
                 }
                 else
                 {
                     ChangeGameObjectTexture(GOAmenagement, indisponibleMat);
-                    Debug.Log("indispo");
                 }
 
                 // positionnement du prefab par rapport au curseur de la souris
@@ -233,7 +244,8 @@ public class MouseRayCast : MonoBehaviour {
 
     void RotationBatiment()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        Settings set = FindObjectOfType<Manager>().Settings;
+        if (Input.GetKeyDown(set.shortcutKeyRotate))
         {
             if(GOAmenagement != null)
             {
@@ -265,11 +277,12 @@ public class MouseRayCast : MonoBehaviour {
                     if (dispo && ville.PlacerUnAmenagement(amenagement)) // placement du batiment sur la carte
                     {
                         ChangeGameObjectTextureToOriginal(GOAmenagement, modelActuel);
+                        amenagementSpawner.GetComponent<AmenagementSpawner>().Spawn(GOAmenagement.transform);
+
+                        // on place le model attaché à la souris en remplacant le model attaché a la souris par un nouveau, l'autre est donc laissé sur place
                         GOAmenagement = Instantiate(modelActuel, new Vector3(posX, 0, posZ), Quaternion.identity);
                         amenagement = GOAmenagement.GetComponent<AmenagementPrefab>().Amenagement;
                         amenagement.Rotation = rotation;
-                        
-                        
                     }
                 }
                 
@@ -277,8 +290,9 @@ public class MouseRayCast : MonoBehaviour {
             }
             
         }
-        
-        if(Input.GetMouseButtonUp(0) && hitTerrain)
+
+        // Placement des route en gardant le clique enfoncé
+        if (Input.GetMouseButtonUp(0) && hitTerrain) 
         {
             
             bool ligneDispo = true;
@@ -301,7 +315,7 @@ public class MouseRayCast : MonoBehaviour {
                         if (ville.PlacerUnAmenagement(new Route("", 0, 1, Mathf.FloorToInt(x) / 10, i, false)))
                         {
                             
-                            GOAmenagement = Instantiate(modelActuel, new Vector3(gridX * 10 + 5f, 0.1f, i * 10 + 5f), Quaternion.identity);
+                            GOAmenagement = Instantiate(modelActuel, new Vector3(ConvertToMapScale(gridX), 0.1f, ConvertToMapScale(i)), Quaternion.identity);
                             
                             amenagement = GOAmenagement.GetComponent<AmenagementPrefab>().Amenagement;
                             amenagement.PosX = gridX;
@@ -332,7 +346,7 @@ public class MouseRayCast : MonoBehaviour {
                         if (ville.PlacerUnAmenagement(new Route("", 0, 1, i, Mathf.FloorToInt(z) / 10, false)))
                         {
 
-                            GOAmenagement = Instantiate(modelActuel, new Vector3(i * 10 + 5f, 0.1f, gridZ * 10 + 5f), Quaternion.identity);
+                            GOAmenagement = Instantiate(modelActuel, new Vector3(ConvertToMapScale(i), 0.1f, ConvertToMapScale(gridZ)), Quaternion.identity);
                             amenagement = GOAmenagement.GetComponent<AmenagementPrefab>().Amenagement;
                             amenagement.PosX = i;
                             amenagement.PosY = gridZ;
@@ -350,7 +364,8 @@ public class MouseRayCast : MonoBehaviour {
             firstBoule = null;
         }
 
-        if(Input.GetMouseButtonDown(0) && GOAmenagement == null)
+        //Selection ou desruction d'un batiment
+        if(Input.GetMouseButtonDown(0) && GOAmenagement == null) 
         {
             
             int mask = LayerMask.GetMask("Batiment"); 
@@ -377,15 +392,21 @@ public class MouseRayCast : MonoBehaviour {
                     }
                     
                 }
-                else
+                else // Le joueur a cliqué sur un batilent 
                 {
+                    // On affiche les informations du batiments
                     menu.AfficheInfoAmenagement(targetBuilding);
+                    //Affiche l'outline du batiment
+                    DisplayOutlineSelectedBuilding();
                 }
                     
             }
-            else if(!EventSystem.current.IsPointerOverGameObject())
+            else if(!EventSystem.current.IsPointerOverGameObject()) // CLique sur un point de la map qui ne contient pas de batiment
             {
+                // on cache les infos du batiment
+                // on cache l'outline du batiment
                 targetBuilding = null;
+                RemoveOutlineSelectedTransform();
                 menu.CacherInfoAmenagement();
             }
                 
@@ -429,14 +450,16 @@ public class MouseRayCast : MonoBehaviour {
             }
             else
             {
-                // ouvre para menu
-                if (boxParametres.activeInHierarchy)
+                // toggle para menu
+                if (boxPause.activeInHierarchy)
                 {
-                    boxParametres.SetActive(false);
+                    boxPause.GetComponent<PauseBox>().Close();
+                    boxPause.SetActive(false);
+                    
                 }
                 else
                 {
-                    boxParametres.SetActive(true);
+                    boxPause.SetActive(true);
                 }
             }
 
@@ -511,15 +534,10 @@ public class MouseRayCast : MonoBehaviour {
         transform.Rotate(transform.right, (dragOrigin.y - Input.mousePosition.y) / 5, Space.World);
         dragOrigin = Input.mousePosition;
     }
-    
-    public void AcivateDestroyMode()
-    {
-        isInDestroyMode = true;
-    }
 
-    public void DeacivateDestroyMode()
+    public void ToggleDestroyMode()
     {
-        isInDestroyMode = false;
+        isInDestroyMode = !isInDestroyMode;
     }
 
     void ChangeGameObjectTexture(GameObject go, Material mat)
@@ -547,6 +565,55 @@ public class MouseRayCast : MonoBehaviour {
         }
         else
             go.GetComponent<Renderer>().sharedMaterial = original.GetComponent<Renderer>().sharedMaterial;
+    }
+
+    /// <summary>
+    /// Place un carré jaune sous le batiment sélectionné
+    /// </summary>
+    void DisplayOutlineSelectedBuilding() 
+    {
+        outlineGroup = new List<GameObject>();
+        Amenagement amenTemp = targetBuilding.gameObject.GetComponent<AmenagementPrefab>().Amenagement;
+        for (int i = amenTemp.PosX; i < amenTemp.PosX + amenTemp.Taille; i++)
+        {
+            for(int j = amenTemp.PosY; j < amenTemp.PosY + amenTemp.Taille; j++)
+            {
+                GameObject temp = Instantiate(unitOutline);
+                temp.transform.position = new Vector3(ConvertToMapScale(i), 0.1f, ConvertToMapScale(j));
+                outlineGroup.Add(temp);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Retire le carré jaune placé sous le batiment sélectionné
+    /// </summary>
+    void RemoveOutlineSelectedTransform()
+    {
+        if(outlineGroup != null)
+            foreach(GameObject go in outlineGroup)
+            {
+                Destroy(go);
+            }
+
+    }
+
+    /// <summary>
+    /// Renvoie la position sur le terrain en fonction de l'index dans le tableau
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    float ConvertToMapScale(int pos)
+    {
+        return pos * 10 + 5f;
+    }
+
+    /// <summary>
+    /// Démarre l'animation d'apparition du batiment
+    /// </summary>
+    void StartSpawnAnimation()
+    {
+
     }
 
     private void OnDrawGizmos()
