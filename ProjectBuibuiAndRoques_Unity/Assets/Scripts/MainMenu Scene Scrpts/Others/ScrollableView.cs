@@ -13,6 +13,11 @@ public class ScrollableView : MonoBehaviour
         movingTransform.localPosition = new Vector3(0, 0, 0);
     }
 
+    private void OnEnable()
+    {
+        movingTransform.localPosition = new Vector3(0, 0, 0);
+    }
+
     // Update is called once per frame
     void Update()
     {

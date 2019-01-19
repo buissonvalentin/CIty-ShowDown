@@ -19,14 +19,26 @@ public class SettingsBox : MonoBehaviour
 
     // Musique Settings
     public Slider soundSlider;
-    public Text volume;
+    public Text volumeText;
     int musiqueVolume;
 
 
     // Noise Settings
     public Slider noiseSlider;
-    public Text noise;
+    public Text noiseText;
     int noiseVolume;
+
+    //Move Sensibility Settings
+    public Slider moveSensitivitySlider;
+    public Text moveSensitivityText;
+    float moveSensitivity;
+
+
+    //Move Sensibility Settings
+    public Slider orientationSensitivitySlider;
+    public Text orientationSensitivityText;
+    float orientationSensitivity;
+
 
 
     // Vsync Settings
@@ -40,16 +52,42 @@ public class SettingsBox : MonoBehaviour
     // Save option
     public Button apply;
 
-    //Shortcut option
+    ///Shortcut option
+    //rotation
     public Image rotateShortcutZone;
     public Text rotateShortcutText;
     KeyCode rotateShortcut;
     bool isMouseOverRotateZone;
 
+    //destroy
     public Image destroyShortcutZone;
     public Text destroyShortcutText;
     KeyCode destroyShortcut;
     bool isMouseOverDestroyZone;
+
+    //forward
+    public Image forwardShortcutZone;
+    public Text forwardShortcutText;
+    KeyCode forwardShortcut;
+    bool isMouseOverForwardZone;
+
+    //backward
+    public Image backwardShortcutZone;
+    public Text backwardShortcutText;
+    KeyCode backwardShortcut;
+    bool isMouseOverBackwardZone;
+
+    //left
+    public Image leftShortcutZone;
+    public Text leftShortcutText;
+    KeyCode leftShortcut;
+    bool isMouseOverLeftZone;
+
+    //right
+    public Image rightShortcutZone;
+    public Text rightShortcutText;
+    KeyCode rightShortcut;
+    bool isMouseOverRightZone;
 
 
     // Start is called before the first frame update
@@ -86,6 +124,8 @@ public class SettingsBox : MonoBehaviour
         SetUpVSyncManagement();
         SetUpNoiseSettings();
         SetUpShortcutManagement();
+        SetUpMoveSensitivity();
+        SetUpOrientationSensitivity();
     }
 
     // Update is called once per frame
@@ -105,6 +145,26 @@ public class SettingsBox : MonoBehaviour
             {
                 destroyShortcut = keyC;
                 destroyShortcutText.text = keyC.ToString();
+            }
+            else if (isMouseOverForwardZone)
+            {
+                forwardShortcut = keyC;
+                forwardShortcutText.text = keyC.ToString();
+            }
+            else if (isMouseOverBackwardZone)
+            {
+                backwardShortcut = keyC;
+                backwardShortcutText.text = keyC.ToString();
+            }
+            else if (isMouseOverRightZone)
+            {
+                rightShortcut = keyC;
+                rightShortcutText.text = keyC.ToString();
+            }
+            else if (isMouseOverLeftZone)
+            {
+                leftShortcut = keyC;
+                leftShortcutText.text = keyC.ToString();
             }
         }
     }
@@ -139,8 +199,7 @@ public class SettingsBox : MonoBehaviour
 
     void SetUpVolumeSettings()
     {
-       // musiqueVolume = 20;
-        volume.text = musiqueVolume.ToString();
+        volumeText.text = musiqueVolume.ToString();
 
         soundSlider.minValue = 0;
         soundSlider.maxValue = 100;
@@ -150,8 +209,39 @@ public class SettingsBox : MonoBehaviour
         soundSlider.onValueChanged.RemoveAllListeners();
         soundSlider.onValueChanged.AddListener(delegate 
         {
-            //musiqueVolume = (int)soundSlider.value;
-            volume.text = soundSlider.value.ToString();
+            volumeText.text = soundSlider.value.ToString();
+        });
+    }
+
+    void SetUpMoveSensitivity()
+    {
+        moveSensitivityText.text = moveSensitivity.ToString();
+
+        moveSensitivitySlider.minValue = 0;
+        moveSensitivitySlider.maxValue = 10;
+        moveSensitivitySlider.value = moveSensitivity;
+        moveSensitivitySlider.wholeNumbers = false;
+
+        moveSensitivitySlider.onValueChanged.RemoveAllListeners();
+        moveSensitivitySlider.onValueChanged.AddListener(delegate
+        {
+            moveSensitivityText.text = moveSensitivitySlider.value.ToString();
+        });
+    }
+
+    void SetUpOrientationSensitivity()
+    {
+        orientationSensitivityText.text = orientationSensitivity.ToString();
+
+        orientationSensitivitySlider.minValue = 0;
+        orientationSensitivitySlider.maxValue = 10;
+        orientationSensitivitySlider.value = orientationSensitivity;
+        orientationSensitivitySlider.wholeNumbers = false;
+
+        orientationSensitivitySlider.onValueChanged.RemoveAllListeners();
+        orientationSensitivitySlider.onValueChanged.AddListener(delegate
+        {
+            orientationSensitivityText.text = orientationSensitivitySlider.value.ToString();
         });
     }
 
@@ -172,7 +262,7 @@ public class SettingsBox : MonoBehaviour
     void SetUpNoiseSettings()
     {
         //noiseVolume = 20;
-        noise.text = noiseVolume.ToString();
+        noiseText.text = noiseVolume.ToString();
 
         noiseSlider.minValue = 0;
         noiseSlider.maxValue = 100;
@@ -183,7 +273,7 @@ public class SettingsBox : MonoBehaviour
         noiseSlider.onValueChanged.AddListener(delegate
         {
             //noiseVolume = (int)noiseSlider.value;
-            noise.text = noiseSlider.value.ToString();
+            noiseText.text = noiseSlider.value.ToString();
         });
     }
 
@@ -191,13 +281,20 @@ public class SettingsBox : MonoBehaviour
     {
         isMouseOverDestroyZone = false;
         isMouseOverRotateZone = false;
-
-        //rotateShortcut = KeyCode.G;
-        //destroyShortcut = KeyCode.X;
+        isMouseOverBackwardZone = false;
+        isMouseOverForwardZone = false;
+        isMouseOverRightZone = false;
+        isMouseOverLeftZone = false;
+        
 
         rotateShortcutText.text = rotateShortcut.ToString();
         destroyShortcutText.text = destroyShortcut.ToString();
+        forwardShortcutText.text = forwardShortcut.ToString();
+        backwardShortcutText.text = backwardShortcut.ToString();
+        rightShortcutText.text = rightShortcut.ToString();
+        leftShortcutText.text = leftShortcut.ToString();
 
+        // rotation
         rotateShortcutZone.GetComponent<OnHover>().OnEnter += () =>
         {
             isMouseOverRotateZone = true;
@@ -212,6 +309,7 @@ public class SettingsBox : MonoBehaviour
             imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
         };
 
+        //destroy
         destroyShortcutZone.GetComponent<OnHover>().OnEnter += () =>
         {
             isMouseOverDestroyZone = true;
@@ -225,6 +323,68 @@ public class SettingsBox : MonoBehaviour
             Image imgTemp = destroyShortcutZone.GetComponent<Image>();
             imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
         };
+
+        //forward
+        forwardShortcutZone.GetComponent<OnHover>().OnEnter += () =>
+        {
+            isMouseOverForwardZone = true;
+            Image imgTemp = forwardShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0.1f);
+        };
+
+        forwardShortcutZone.GetComponent<OnHover>().OnLeave += () =>
+        {
+            isMouseOverForwardZone = false;
+            Image imgTemp = forwardShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
+        };
+
+        //backward
+        backwardShortcutZone.GetComponent<OnHover>().OnEnter += () =>
+        {
+            isMouseOverBackwardZone = true;
+            Image imgTemp = backwardShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0.1f);
+        };
+
+        backwardShortcutZone.GetComponent<OnHover>().OnLeave += () =>
+        {
+            isMouseOverBackwardZone = false;
+            Image imgTemp = backwardShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
+        };
+
+        //right
+        rightShortcutZone.GetComponent<OnHover>().OnEnter += () =>
+        {
+            isMouseOverRightZone = true;
+            Image imgTemp = rightShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0.1f);
+        };
+
+        rightShortcutZone.GetComponent<OnHover>().OnLeave += () =>
+        {
+            isMouseOverRightZone = false;
+            Image imgTemp = rightShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
+        };
+
+        //left
+        leftShortcutZone.GetComponent<OnHover>().OnEnter += () =>
+        {
+            isMouseOverLeftZone = true;
+            Image imgTemp = leftShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0.1f);
+        };
+
+        leftShortcutZone.GetComponent<OnHover>().OnLeave += () =>
+        {
+            isMouseOverLeftZone = false;
+            Image imgTemp = leftShortcutZone.GetComponent<Image>();
+            imgTemp.color = new Color(imgTemp.color.r, imgTemp.color.g, imgTemp.color.b, 0f);
+        };
+
+
     }
 
     void UpdateSettings()
@@ -237,6 +397,16 @@ public class SettingsBox : MonoBehaviour
         set.noiseVolume = (int)noiseSlider.value;
         set.shortcutKeyDelete = destroyShortcut;
         set.shortcutKeyRotate = rotateShortcut;
+        set.shortcutKeyForward = forwardShortcut;
+        set.shortcutKeyBackward = backwardShortcut;
+        set.shortcutKeyRight = rightShortcut;
+        set.shortcutKeyLeft = leftShortcut;
+        set.moveSensibility = moveSensitivitySlider.value;
+        set.orientationSensibility = orientationSensitivitySlider.value;
+
+
+        if (FindObjectOfType<MouseRayCast>() != null)
+            FindObjectOfType<MouseRayCast>().UpdateSettings();
     }
 
     void SetUpValues()
@@ -248,6 +418,12 @@ public class SettingsBox : MonoBehaviour
         noiseVolume = set.noiseVolume;
         destroyShortcut = set.shortcutKeyDelete;
         rotateShortcut = set.shortcutKeyRotate;
+        forwardShortcut = set.shortcutKeyForward;
+        backwardShortcut = set.shortcutKeyBackward;
+        rightShortcut = set.shortcutKeyRight;
+        leftShortcut = set.shortcutKeyLeft;
+        moveSensitivity = set.moveSensibility;
+        orientationSensitivity = set.orientationSensibility;
 
     }
 

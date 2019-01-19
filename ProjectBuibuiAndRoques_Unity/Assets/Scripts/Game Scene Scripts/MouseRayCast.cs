@@ -46,6 +46,7 @@ public class MouseRayCast : MonoBehaviour {
     float z;
 
     public float Zoomsensitivity = 10f;
+    float moveSensitivity = 1;
 
     bool dispo;
     bool hitTerrain;
@@ -60,6 +61,8 @@ public class MouseRayCast : MonoBehaviour {
 
     //Amenagement Spawner
     public GameObject amenagementSpawner;
+
+    Settings settings;
     
 
     void Start () {
@@ -71,6 +74,7 @@ public class MouseRayCast : MonoBehaviour {
         x = 0;
         z = 0;
         ville = FindObjectOfType<GameManager>().ville;
+        UpdateSettings();
     }
 	
 	// Update is called once per frame
@@ -113,17 +117,33 @@ public class MouseRayCast : MonoBehaviour {
 
     private void CheckForShortCut()
     {
-        Settings set = FindObjectOfType<Manager>().Settings;
-        if (Input.GetKeyDown(set.shortcutKeyRotate)){
+        if (Input.GetKeyDown(settings.shortcutKeyRotate)){
             if(targetBuilding != null)
             {
                 targetBuilding.Rotate(new Vector3(0, 90f, 0));
             }
         }
 
-        if (Input.GetKeyDown(set.shortcutKeyDelete))
+        if (Input.GetKeyDown(settings.shortcutKeyDelete))
         {
             ToggleDestroyMode();
+        }
+
+        if (Input.GetKey(settings.shortcutKeyForward))
+        {
+            transform.position += Vector3.left * settings.moveSensibility;
+        }
+        else if (Input.GetKey(settings.shortcutKeyBackward))
+        {
+            transform.position += Vector3.right * settings.moveSensibility;
+        }
+        else if (Input.GetKey(settings.shortcutKeyRight))
+        {
+            transform.position += Vector3.forward * settings.moveSensibility;
+        }
+        else if (Input.GetKey(settings.shortcutKeyLeft))
+        {
+            transform.position += Vector3.back * settings.moveSensibility;
         }
 
     }
@@ -180,7 +200,8 @@ public class MouseRayCast : MonoBehaviour {
 
     void ZoomCamera()
     {
-        transform.position +=  transform.forward * (Input.GetAxis("Mouse ScrollWheel") * (transform.position.y/5) * Zoomsensitivity);
+        if(!boxPause.activeInHierarchy)
+            transform.position +=  transform.forward * (Input.GetAxis("Mouse ScrollWheel") * (transform.position.y/5) * Zoomsensitivity);
         
     }
 
@@ -451,7 +472,7 @@ public class MouseRayCast : MonoBehaviour {
             else
             {
                 // toggle para menu
-                if (boxPause.activeInHierarchy)
+                if (boxPause.gameObject.activeInHierarchy)
                 {
                     boxPause.GetComponent<PauseBox>().Close();
                     boxPause.SetActive(false);
@@ -530,8 +551,8 @@ public class MouseRayCast : MonoBehaviour {
 
         Cursor.SetCursor(cursorOrientationCamera, Vector2.zero, CursorMode.Auto);
         isCursorUsed = true; 
-        transform.Rotate(Vector3.up, -(dragOrigin.x - Input.mousePosition.x) / 5, Space.World);
-        transform.Rotate(transform.right, (dragOrigin.y - Input.mousePosition.y) / 5, Space.World);
+        transform.Rotate(Vector3.up, -(dragOrigin.x - Input.mousePosition.x) * settings.orientationSensibility / 5, Space.World);
+        transform.Rotate(transform.right, (dragOrigin.y - Input.mousePosition.y) * settings.orientationSensibility / 5, Space.World);
         dragOrigin = Input.mousePosition;
     }
 
@@ -608,12 +629,9 @@ public class MouseRayCast : MonoBehaviour {
         return pos * 10 + 5f;
     }
 
-    /// <summary>
-    /// Démarre l'animation d'apparition du batiment
-    /// </summary>
-    void StartSpawnAnimation()
+    public void UpdateSettings()
     {
-
+        settings = FindObjectOfType<Manager>().Settings;
     }
 
     private void OnDrawGizmos()
